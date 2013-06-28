@@ -105,7 +105,7 @@ public class Experimento1Test {
 
 	@Test
 	public void calculoImpostoIsento2() {
-		FontePagadora fonte = criarFontePagadoraPadrao(15000);
+		FontePagadora fonte = criarFontePagadoraPadrao(20000);
 		Declaracao declaracao = salvarDeclaracaoComUmaFonte(fonte);
 		
 		assertEquals(declaracao.getImpostoDevido(), 0, 0.01);
@@ -113,56 +113,42 @@ public class Experimento1Test {
 
 	@Test
 	public void calculoImpostoFaixa2_1() {
-		FontePagadora fonte = criarFontePagadoraPadrao(24000);
+		FontePagadora fonte = criarFontePagadoraPadrao(30000);
 		Declaracao declaracao = salvarDeclaracaoComUmaFonte(fonte);
 		
-		assertEquals(declaracao.getImpostoDevido(), 326.60, 0.01);
+		assertEquals(declaracao.getImpostoDevido(), 818.45, 0.01);
 	}
 
 	@Test
 	public void calculoImpostoFaixa2_2() {
-		FontePagadora fonte = criarFontePagadoraPadrao(24000);
+		FontePagadora fonte = criarFontePagadoraPadrao(39000);
 		Declaracao declaracao = salvarDeclaracaoComUmaFonte(fonte);
 		
-		assertEquals(declaracao.getImpostoDevido(), 326.60, 0.01);
+		assertEquals(declaracao.getImpostoDevido(), 2168.45, 0.01);
 	}
 
 	@Test
-	public void calculoImpostoFaixa2_3() {
-		FontePagadora fonte = criarFontePagadoraPadrao(24000);
+	public void calculoImpostoFaixa3_1() {
+		FontePagadora fonte = criarFontePagadoraPadrao(40000);
 		Declaracao declaracao = salvarDeclaracaoComUmaFonte(fonte);
 		
-		assertEquals(declaracao.getImpostoDevido(), 326.60, 0.01);
+		assertEquals(declaracao.getImpostoDevido(), 2374.21, 0.01);
 	}
-
+	
 	@Test
-	public void calculoImpostoFaixa3() {
-		//35000
-		//pago 200
+	public void calculoImpostoFaixa3_2() {
+		FontePagadora fonte = criarFontePagadoraPadrao(49000);
+		Declaracao declaracao = salvarDeclaracaoComUmaFonte(fonte);
 		
-		//assert que o total final  1368,45
-		//assert que o total a pagar 1568,45
-		//assert que o total pago 200
+		assertEquals(declaracao.getImpostoDevido(), 4399.21, 0.01);
 	}
 	
 	@Test
 	public void calculoImpostoFaixa4() {
-		//45000
-		//pago 250
+		FontePagadora fonte = criarFontePagadoraPadrao(50000);
+		Declaracao declaracao = salvarDeclaracaoComUmaFonte(fonte);
 		
-		//assert que o total final  3249,21
-		//assert que o total a pagar 3499,21
-		//assert que o total pago 250
-	}
-	
-	@Test
-	public void calculoImpostoFaixa5() {
-		//55000
-		//pago 300
-		
-		//assert que o total final  5746,62
-		//assert que o total a pagar 6046,62
-		//assert que o total pago 300
+		assertEquals(declaracao.getImpostoDevido(), 4671.62, 0.01);
 	}
 
 	

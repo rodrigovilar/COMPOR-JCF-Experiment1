@@ -14,14 +14,9 @@ public class FachadaExperimento {
 		return null;
 	}
 
-	public void criarFontePagadora(FontePagadora fonte) {
+	public void criarFontePagadora(Declaracao declaracao, FontePagadora fonte) {
 		// TODO Auto-generated method stub
 		
-	}
-
-	public List<FontePagadora> listarFontesPagadoras() {
-		// TODO Auto-generated method stub
-		return null;
 	}
 
 }

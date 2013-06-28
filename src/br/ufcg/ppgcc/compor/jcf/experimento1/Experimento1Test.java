@@ -33,13 +33,20 @@ public class Experimento1Test {
 	@Test
 	public void novaFontePagadora() {
 		FontePagadora fonte = criarFontePagadoraPadrao1();
-		
-		fachada.criarNovaDeclaracao(criarDeclaracaoPadrao());
-		fachada.criarFontePagadora(fonte);
-		List<FontePagadora> fontes = fachada.listarFontesPagadoras();
+		Declaracao declaracaoSalva = salvarDeclaracaoComUmaFonte(fonte);
+		List<FontePagadora> fontes = declaracaoSalva.getFontes();
 
 		assertEquals(1, fontes.size());
 		assertEquals(fonte, fontes.get(0));		
+	}
+
+	private Declaracao salvarDeclaracaoComUmaFonte(FontePagadora fonte) {
+		Declaracao declaracao = criarDeclaracaoPadrao();
+		fachada.criarNovaDeclaracao(declaracao);
+		fachada.criarFontePagadora(declaracao, fonte);
+		List<Declaracao> declaracoes = fachada.listarDeclaracoes();
+		Declaracao declaracaoSalva = declaracoes.get(0);
+		return declaracaoSalva;
 	}
 
 	@Test
@@ -47,10 +54,12 @@ public class Experimento1Test {
 		FontePagadora fonte1 = criarFontePagadoraPadrao1();
 		FontePagadora fonte2 = criarFontePagadoraPadrao2();
 		
-		fachada.criarNovaDeclaracao(criarDeclaracaoPadrao());
-		fachada.criarFontePagadora(fonte1);
-		fachada.criarFontePagadora(fonte2);
-		List<FontePagadora> fontes = fachada.listarFontesPagadoras();
+		Declaracao declaracao = criarDeclaracaoPadrao();
+		fachada.criarNovaDeclaracao(declaracao);
+		fachada.criarFontePagadora(declaracao, fonte1);
+		fachada.criarFontePagadora(declaracao, fonte2);
+		List<Declaracao> declaracoes = fachada.listarDeclaracoes();
+		List<FontePagadora> fontes = declaracoes.get(0).getFontes();
 
 		assertEquals(2, fontes.size());
 		assertEquals(fonte1, fontes.get(0));
@@ -87,25 +96,45 @@ public class Experimento1Test {
 	}
 
 	@Test
-	public void calculoImpostoIsento() {
-		//15000
-		//pago 100
+	public void calculoImpostoIsento1() {
+		FontePagadora fonte = criarFontePagadoraPadrao(15000);
+		Declaracao declaracao = salvarDeclaracaoComUmaFonte(fonte);
 		
-		//assert que o total final  -100,00
-		//assert que o total a pagar 0
-		//assert que o total pago 100
+		assertEquals(declaracao.getImpostoDevido(), 0, 0.01);
 	}
-	
+
 	@Test
-	public void calculoImpostoFaixa2() {
-		//22500
-		//pago 150
+	public void calculoImpostoIsento2() {
+		FontePagadora fonte = criarFontePagadoraPadrao(15000);
+		Declaracao declaracao = salvarDeclaracaoComUmaFonte(fonte);
 		
-		//assert que o total final 64,10
-		//assert que o total a pagar 214,10
-		//assert que o total pago 150
+		assertEquals(declaracao.getImpostoDevido(), 0, 0.01);
 	}
-	
+
+	@Test
+	public void calculoImpostoFaixa2_1() {
+		FontePagadora fonte = criarFontePagadoraPadrao(24000);
+		Declaracao declaracao = salvarDeclaracaoComUmaFonte(fonte);
+		
+		assertEquals(declaracao.getImpostoDevido(), 326.60, 0.01);
+	}
+
+	@Test
+	public void calculoImpostoFaixa2_2() {
+		FontePagadora fonte = criarFontePagadoraPadrao(24000);
+		Declaracao declaracao = salvarDeclaracaoComUmaFonte(fonte);
+		
+		assertEquals(declaracao.getImpostoDevido(), 326.60, 0.01);
+	}
+
+	@Test
+	public void calculoImpostoFaixa2_3() {
+		FontePagadora fonte = criarFontePagadoraPadrao(24000);
+		Declaracao declaracao = salvarDeclaracaoComUmaFonte(fonte);
+		
+		assertEquals(declaracao.getImpostoDevido(), 326.60, 0.01);
+	}
+
 	@Test
 	public void calculoImpostoFaixa3() {
 		//35000
@@ -138,13 +167,14 @@ public class Experimento1Test {
 
 	
 	private FontePagadora criarFontePagadoraPadrao1() {
+		return criarFontePagadoraPadrao(50000);
+	}
+
+	private FontePagadora criarFontePagadoraPadrao(int rendimentoRecebidos) {
 		FontePagadora fonte = new FontePagadora();
 		fonte.setNome("UFCG");
 		fonte.setCpfCnpj("000.000.000/0000-00");
-		fonte.setRendimentoRecebidos(50000);
-		fonte.setContribuicaoPrevidenciariaOficial(5000);
-		fonte.setImpostoRetidoNaFonte(8000);
-		fonte.setDecimoTerceiroSalario(5000);
+		fonte.setRendimentoRecebidos(rendimentoRecebidos);
 		return fonte;
 	}
 	
@@ -153,9 +183,6 @@ public class Experimento1Test {
 		fonte.setNome("UFPB");
 		fonte.setCpfCnpj("000.000.000/0000-00");
 		fonte.setRendimentoRecebidos(20000);
-		fonte.setContribuicaoPrevidenciariaOficial(2000);
-		fonte.setImpostoRetidoNaFonte(900);
-		fonte.setDecimoTerceiroSalario(2000);
 		return fonte;
 	}
 

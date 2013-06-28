@@ -1,6 +1,8 @@
 package br.ufcg.ppgcc.compor.jcf.experimento1;
 
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.List;
 
 public class Declaracao {
 
@@ -11,6 +13,7 @@ public class Declaracao {
 	private Endereco endereco;
 	private int naturezaOcupacao;
 	private int ocupacaoPrincipal;
+	private List<FontePagadora> fontes = new ArrayList<FontePagadora>(); 
 
 	
 	@Override
@@ -110,5 +113,14 @@ public class Declaracao {
 	}
 	public void setCpf(String cpf) {
 		this.cpf = cpf;
+	}
+	public List<FontePagadora> getFontes() {
+		return fontes;
+	}
+	public void setFontes(List<FontePagadora> fontes) {
+		this.fontes = fontes;
+	}
+	public double getImpostoDevido() {
+		return 0;
 	}
 }

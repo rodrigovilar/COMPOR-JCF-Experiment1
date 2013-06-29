@@ -5,18 +5,28 @@ import java.util.List;
 public class FachadaExperimento {
 
 	public void criarNovaDeclaracao(Declaracao declaracao) {
-		// TODO Auto-generated method stub
-		
 	}
 
 	public List<Declaracao> listarDeclaracoes() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	public void criarFontePagadora(Declaracao declaracao, FontePagadora fonte) {
-		// TODO Auto-generated method stub
-		
+	}
+
+	public RelatorioCompleto relatorioCompleto(Declaracao declaracao) {
+		return null;
+	}
+
+	public void criarDependente(Declaracao declaracao, Dependente dependente) {
+	}
+
+	public List<FontePagadora> listarFontes(Declaracao declaracao) {
+		return null;
+	}
+
+	public List<Dependente> listarDependentes(Declaracao declaracao) {
+		return null;
 	}
 
 }

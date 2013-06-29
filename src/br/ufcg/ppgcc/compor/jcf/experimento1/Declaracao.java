@@ -1,8 +1,6 @@
 package br.ufcg.ppgcc.compor.jcf.experimento1;
 
-import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.List;
 
 public class Declaracao {
 
@@ -13,9 +11,7 @@ public class Declaracao {
 	private Endereco endereco;
 	private int naturezaOcupacao;
 	private int ocupacaoPrincipal;
-	private List<FontePagadora> fontes = new ArrayList<FontePagadora>(); 
 
-	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -32,6 +28,7 @@ public class Declaracao {
 				+ ((tituloEleitoral == null) ? 0 : tituloEleitoral.hashCode());
 		return result;
 	}
+
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -72,55 +69,61 @@ public class Declaracao {
 			return false;
 		return true;
 	}
+
 	public Calendar getDataNascimento() {
 		return dataNascimento;
 	}
+
 	public void setDataNascimento(Calendar dataNascimento) {
 		this.dataNascimento = dataNascimento;
 	}
+
 	public String getTituloEleitoral() {
 		return tituloEleitoral;
 	}
+
 	public void setTituloEleitoral(String tituloEleitoral) {
 		this.tituloEleitoral = tituloEleitoral;
 	}
+
 	public Endereco getEndereco() {
 		return endereco;
 	}
+
 	public void setEndereco(Endereco endereco) {
 		this.endereco = endereco;
 	}
+
 	public int getNaturezaOcupacao() {
 		return naturezaOcupacao;
 	}
+
 	public void setNaturezaOcupacao(int naturezaOcupacao) {
 		this.naturezaOcupacao = naturezaOcupacao;
 	}
+
 	public int getOcupacaoPrincipal() {
 		return ocupacaoPrincipal;
 	}
+
 	public void setOcupacaoPrincipal(int ocupacaoPrincipal) {
 		this.ocupacaoPrincipal = ocupacaoPrincipal;
 	}
+
 	public String getNome() {
 		return nome;
 	}
+
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
+
 	public String getCpf() {
 		return cpf;
 	}
+
 	public void setCpf(String cpf) {
 		this.cpf = cpf;
 	}
-	public List<FontePagadora> getFontes() {
-		return fontes;
-	}
-	public void setFontes(List<FontePagadora> fontes) {
-		this.fontes = fontes;
-	}
-	public double getImpostoDevido() {
-		return 0;
-	}
+
 }

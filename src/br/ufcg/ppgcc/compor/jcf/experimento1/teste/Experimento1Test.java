@@ -1,4 +1,4 @@
-package br.ufcg.ppgcc.compor.jcf.experimento1;
+package br.ufcg.ppgcc.compor.jcf.experimento1.teste;
 
 import static org.junit.Assert.*;
 
@@ -7,6 +7,13 @@ import java.util.List;
 
 import org.junit.Before;
 import org.junit.Test;
+
+import br.ufcg.ppgcc.compor.jcf.experimento1.fachada.Declaracao;
+import br.ufcg.ppgcc.compor.jcf.experimento1.fachada.Dependente;
+import br.ufcg.ppgcc.compor.jcf.experimento1.fachada.Endereco;
+import br.ufcg.ppgcc.compor.jcf.experimento1.fachada.FachadaExperimento;
+import br.ufcg.ppgcc.compor.jcf.experimento1.fachada.FontePagadora;
+import br.ufcg.ppgcc.compor.jcf.experimento1.fachada.RelatorioCompleto;
 
 public class Experimento1Test {
 

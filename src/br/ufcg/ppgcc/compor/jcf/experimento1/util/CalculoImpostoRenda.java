@@ -2,9 +2,9 @@ package br.ufcg.ppgcc.compor.jcf.experimento1.util;
 
 import java.util.List;
 
-import br.ufcg.ppgcc.compor.jcf.experimento1.Declaracao;
-import br.ufcg.ppgcc.compor.jcf.experimento1.Dependente;
-import br.ufcg.ppgcc.compor.jcf.experimento1.FontePagadora;
+import br.ufcg.ppgcc.compor.jcf.experimento1.fachada.Declaracao;
+import br.ufcg.ppgcc.compor.jcf.experimento1.fachada.Dependente;
+import br.ufcg.ppgcc.compor.jcf.experimento1.fachada.FontePagadora;
 
 public class CalculoImpostoRenda {
 

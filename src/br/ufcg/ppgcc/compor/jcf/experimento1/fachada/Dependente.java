@@ -1,4 +1,4 @@
-package br.ufcg.ppgcc.compor.jcf.experimento1;
+package br.ufcg.ppgcc.compor.jcf.experimento1.fachada;
 
 import java.util.Calendar;
 

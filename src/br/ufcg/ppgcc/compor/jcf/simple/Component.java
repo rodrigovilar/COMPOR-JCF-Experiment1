@@ -1,4 +1,4 @@
-package br.ufcg.ppgcc.compor.jcf.experimento1.compor;
+package br.ufcg.ppgcc.compor.jcf.simple;
 
 import net.compor.frameworks.jcf.FunctionalComponent;
 import net.compor.frameworks.jcf.ProvidedService;

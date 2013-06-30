@@ -1,4 +1,4 @@
-package br.ufcg.ppgcc.compor.jcf.experimento1.compor;
+package br.ufcg.ppgcc.compor.jcf.simple;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

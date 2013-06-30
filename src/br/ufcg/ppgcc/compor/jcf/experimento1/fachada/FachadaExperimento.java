@@ -2,9 +2,16 @@ package br.ufcg.ppgcc.compor.jcf.experimento1.fachada;
 
 import java.util.List;
 
+import br.ufcg.ppgcc.compor.jcf.experimento1.compor.ComporFacade;
 
-public class FachadaExperimento {
 
+public class FachadaExperimento extends ComporFacade {
+
+	
+	@Override
+	protected void addComponents() {
+	}
+	
 	public void criarNovaDeclaracao(Declaracao declaracao) {
 	}
 

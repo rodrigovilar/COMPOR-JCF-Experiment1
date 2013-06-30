@@ -32,7 +32,7 @@ public class CalculoImpostoRenda {
 		return impostoDevidoFaixa5(baseCalculo);
 	}
 	
-	public static double somaRenda(List<FontePagadora> fontes) {
+	private static double somaRenda(List<FontePagadora> fontes) {
 		double soma = 0.0;
 		
 		for (FontePagadora fontePagadora : fontes) {
